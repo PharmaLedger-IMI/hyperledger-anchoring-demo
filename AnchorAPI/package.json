@@ -1,0 +1,25 @@
+{
+  "name": "anchorapi",
+  "version": "1.0.0",
+  "description": "Anchor API",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --testTimeout=10000",
+    "start": "node app.js"
+  },
+  "author": "MAB",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}

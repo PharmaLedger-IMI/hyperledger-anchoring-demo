@@ -1,0 +1,1 @@
+./scripts/deployCC.sh mychannel javascript $1

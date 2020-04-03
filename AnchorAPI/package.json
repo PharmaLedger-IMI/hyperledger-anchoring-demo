@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Anchor API",
   "main": "index.js",
+  "engines": {
+    "node": "10.15.2",
+    "npm": "^6.4.1",
+    "eslint": "6.6.0"
+  },
   "scripts": {
     "test": "jest --testTimeout=10000",
     "start": "node app.js"
@@ -10,7 +15,14 @@
   "author": "MAB",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "fabric-network": "2.0.0-beta.4",
+    "fabric-ca-client": "2.0.0-beta.4",
+    "fabric-common": "2.0.0-beta.4",
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.5.0",
+    "utf-8-validate": "^5.0.2",
+    "fabric-shim-api": "latest"
   },
   "devDependencies": {
     "jest": "^25.1.0",

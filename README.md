@@ -41,14 +41,15 @@ This will run the tests for :
  - json anchor validation
  - create the authorization information to execute chanincode on the network
  - creating and getting an anchor from the network
-If the certificates are not correctly filled on connection.json, handshake exceptions will show up. 
+ 
+If the certificates are not correctly filled in connection.json, handshake exceptions will be raised. 
 
 **7. In order to update the chaincode :**<br/>
 
 Change directory to PharmaLedger-IMI/anchoring-demo/AnchorAPI/Network/DockerSimpleNetwork<br/>
 run ./scripts/upgradeCC versionNumber<br/>
 **versionNumber** must be the next number version to be installed. By default the installation will be made with version 1.<br/>
-In case the versionNumber is wrong, the script will fail.<br/>
+In case the **versionNumber** is wrong, the script will fail.<br/>
 
 **8. In order to clean up the network :**<br/>
 

@@ -138,7 +138,7 @@ createChannelTx
 echo "### Generating channel configuration transaction '${CHANNEL_NAME}.tx' ###"
 createAncorPeerTx
 
-FABRIC_CFG_PATH=$PWD/../Hyperledger/Fabric/config/
+FABRIC_CFG_PATH=$PWD/../Hyperledger/config/
 
 ## Create channel
 echo "Creating channel "$CHANNEL_NAME

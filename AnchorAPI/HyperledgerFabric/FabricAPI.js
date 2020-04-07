@@ -1,6 +1,5 @@
 'use strict';
 
-const { ChaincodeResponse } = require('fabric-shim-api');
 const { Wallets, Gateway } = require('fabric-network');
 const channelid = 'mychannel';
 const path = require('path');

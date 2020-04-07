@@ -13,11 +13,11 @@ VERBOSE="$6"
 : ${VERBOSE:="false"}
 CC_RUNTIME_LANGUAGE=`echo "$CC_RUNTIME_LANGUAGE" | tr [:upper:] [:lower:]`
 
-FABRIC_CFG_PATH=$PWD/../Hyperledger/Fabric/config/
+FABRIC_CFG_PATH=$PWD/../Hyperledger/config/
 
 if [ "$CC_RUNTIME_LANGUAGE" = "javascript" ]; then
 	CC_RUNTIME_LANGUAGE=node # chaincode runtime language is node.js
-	CC_SRC_PATH="./chaincode"
+	CC_SRC_PATH="./AnchorChainCode"
 else
 	echo The chaincode language ${CC_RUNTIME_LANGUAGE} is not supported by this script
 	echo Supported chaincode languages are: javascript
@@ -30,9 +30,9 @@ fi
 copyChainCode(){
 
 echo "========== Copy chaincode =========="
-mkdir chaincode/
-cp ./../../Hyperledger/ChainCode/*.js chaincode/
-cp ./../../Hyperledger/ChainCode/package.json chaincode/
+mkdir AnchorChainCode/
+cp ./../../AnchorChainCode/*.js AnchorChainCode/
+cp ./../../AnchorChainCode/package.json AnchorChainCode/
 
 
 }

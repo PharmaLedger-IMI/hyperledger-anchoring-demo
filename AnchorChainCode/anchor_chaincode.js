@@ -13,7 +13,7 @@ let anchorChainCode = class
                     return shim.success();
                 },
                 () => {
-                    return shim.error("Unable to start default entry in state");
+                    return shim.error(Buffer.from("Unable to insert default entry in ledger state"));
                 }
             )
     }

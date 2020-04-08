@@ -80,7 +80,7 @@ let anchorChainCode = class
     {
         const allAnchors = [];
         let payloadAsBytes = await stub.getState("anchorKey");
-        allAnchors.push("anchorKey",Buffer.from(payloadAsBytes).toString('utf8'));
+        allAnchors.push("anchorKey",Buffer.from(payloadAsBytes));
 
         console.info(allAnchors);
         return allAnchors;
@@ -126,9 +126,33 @@ let anchorChainCode = class
             throw new Error(JSON.stringify(jsonResp));
         }
 
-        await stub.delete(anchorUrl);
+        await stub.deleteState(anchorUrl);
     }
 
+    async UpdateAnchor(stub, args, thisClass)
+    {
+        if (args.length !== 2)
+        {
+            console.info('UpdateAnchor require 2 parameters : AnchorUrl and AnchorValue');
+            throw new Error('Expecting number of arguments : 2')
+        }
+        let anchorUrl = args[0];
+        let anchorValue = args[1];
+
+        //todo sanitation of arguments
+
+        let payloadAsBytes = await stub.getState(anchorUrl);
+        if (!thisClass.PayloadExist(payloadAsBytes))
+        {
+            throw new Error(`Anchor doesn't exist [${payloadAsBytes.toString()}] end of anchor.`);
+        }
+
+        let anchor = {};
+        anchor.anchorUrl = anchorUrl;
+        anchor.anchorValue = anchorValue;
+
+        await stub.putState(anchorUrl,Buffer.from(JSON.stringify(anchor)));
+    }
 };
 
 shim.start(new anchorChainCode());

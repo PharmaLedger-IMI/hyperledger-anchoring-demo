@@ -1,4 +1,5 @@
 const anchorJsonValidator = require('./Validation/AnchorJsonValidator');
+const anchorLedgerAPI = require('./HyperledgerFabric/FabricAPI');
 
 const express = require('express');
 const app = express();
@@ -9,37 +10,7 @@ app.use(express.json());    // <==== parse request body as JSON
 //api entries
 //validation if an anchor is already defined or it doesn't exist, will be done at smart contract level
 
-app.post('/createAnchor',(req,res) => {
-    var hostname = req.hostname;
-    //get json
-    var jsonReceived = req.body;
-
-    console.dir(req.hostname);
-    console.dir(req.body);
-
-
-
-    //check if json is valid as structure
-    if (anchorJsonValidator.validate(jsonReceived))
-    {
-        res.status(200).send('CreateAnchor was called!');
-        return;
-    }
-
-
-    //todo: validate json internal data
-    // - validation : hash must be signed with one of the publickeys delivered
-    // - validation : anchorURL
-
-    //todo: simulate create anchor in fake HyperledgerAPIWrapper
-    //todo: return based on status
-
-    res.status(400).send('invalid json format!');
-
-});
-
-
-app.post('/updateAnchor', (req,res) => {
+app.post('/createAnchor',async (req,res) =>  {
     var hostname = req.hostname;
     //get json
     var jsonReceived = req.body;
@@ -50,7 +21,35 @@ app.post('/updateAnchor', (req,res) => {
     //check if json is valid as structure
     if (anchorJsonValidator.validate(jsonReceived))
     {
-        res.status(200).send('updateAnchor was called!');
+        const result = await anchorLedgerAPI.AddAnchorToLedger(jsonReceived.anchorURL, jsonReceived);
+        console.info(result);
+        res.json(result);
+        return;
+    }
+
+    //todo: validate json internal data
+    // - validation : hash must be signed with one of the publickeys delivered
+    // - validation : anchorURL
+
+    res.status(400).send('invalid json format!');
+
+});
+
+
+app.post('/updateAnchor', async (req,res) => {
+    var hostname = req.hostname;
+    //get json
+    var jsonReceived = req.body;
+
+    console.dir(req.hostname);
+    console.dir(req.body);
+
+    //check if json is valid as structure
+    if (anchorJsonValidator.validate(jsonReceived))
+    {
+        var result = await anchorLedgerAPI.UpdateAnchorOnLedger(jsonReceived.anchorURL, jsonReceived);
+        console.info(result);
+        res.json(result);
         return;
     }
 
@@ -59,21 +58,26 @@ app.post('/updateAnchor', (req,res) => {
     // - validation : hash must be signed with one of the publickeys delivered
     // - validation : anchorURL
 
-    //todo: simulate update anchor in fake HyperledgerAPIWrapper
-    //todo: return based on status
-
     res.status(400).send('invalid json format!');
 });
 
-app.post('/getAnchor', (req,res) => {
+app.post('/getAnchor', async (req,res) => {
     var hostname = req.hostname;
+    //get json
+    var jsonReceived = req.body;
 
-    //todo: get anchor from url
+    var result = await anchorLedgerAPI.GetAnchorFromLedger(jsonReceived.anchorURL);
+    res.json(result);
 
-    //todo: simulate get anchor in fake HyperledgerAPIWrapper
-    //todo: return based on status
+});
 
-    res.status(200).send('getAnchor was called!');
+app.post('/deleteAnchor', async (req,res) => {
+    var hostname = req.hostname;
+    //get json
+    var jsonReceived = req.body;
+
+    var result = await anchorLedgerAPI.DeleteAnchorFromLedger(jsonReceived.anchorURL);
+    res.json(result);
 });
 
 const server = app.listen(port);

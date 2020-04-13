@@ -1,4 +1,6 @@
 # Default ignored files
 /workspace.xml
+organizations/*
+Kube/*
 # Editor-based HTTP Client requests
 /httpRequests/

@@ -1,3 +1,9 @@
 # Default ignored files
-organizations/*
-Kube/*
+
+!/AnchorAPI/wallet/
+!/Network/DockerNetwork;C/
+!/Network/DockerNetwork/organizations/
+!/PodAnchor/venv/
+!/Network/Kube/
+!/Network/Hyperledger/bin/
+!/Network/Hyperledger/config/

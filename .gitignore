@@ -1,8 +1,8 @@
 # Default ignored files
 
 !/AnchorAPI/wallet/
-!/Network/DockerNetwork;C/
-!/Network/DockerNetwork/AnchorChainCode/
-!/Network/Kube/
-!/Network/Hyperledger/bin/
-!/Network/Hyperledger/config/
+!/Blockchain/DockerNetwork;C/
+!/Blockchain/DockerNetwork/AnchorChainCode/
+!/Blockchain/Kube/
+!/Blockchain/Hyperledger/bin/
+!/Blockchain/Hyperledger/config/

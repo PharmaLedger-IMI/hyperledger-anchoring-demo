@@ -1,6 +1,7 @@
 const anchorJsonValidator = require('./Validation/AnchorJsonValidator');
 const anchorLedgerAPI = require('./HyperledgerFabric/FabricAPI');
 const fs = require('fs');
+const path = require('path');
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -14,7 +15,8 @@ app.get('/getTestVolume', async (req, res) => {
     // /config - mount volume initializaed with empty dir
 
     try {
-       const content = fs.readFileSync('/config/data/configtx.yaml');
+        const filepath =  path.resolve(process.cwd(),'config','configtx.yaml');
+        const content = fs.readFileSync(filepath);
 
         res.json({
             content : content.toString(),

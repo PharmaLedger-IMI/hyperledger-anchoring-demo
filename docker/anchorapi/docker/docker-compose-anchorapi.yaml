@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  anchorapipeer0:
+   container_name: anchorapipeer0
+   image: ledger-anchorapi
+   ports:
+     - "3000:3000"

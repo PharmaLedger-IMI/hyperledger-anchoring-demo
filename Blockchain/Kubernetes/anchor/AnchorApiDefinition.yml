@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: anchorapi
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: anchorapi
+  template:
+    metadata:
+      labels:
+        app: anchorapi
+    spec:
+      containers:
+        - name: anchorapi-container
+          image: mabdockerid/ledger-anchorapi:latest
+          ports:
+           - containerPort: 3000
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /config
+              name: cache-volume
+      volumes:
+        - name: cache-volume
+          emptyDir: {}
+

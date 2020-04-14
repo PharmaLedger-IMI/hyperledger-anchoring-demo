@@ -1,6 +1,6 @@
 const anchorJsonValidator = require('./Validation/AnchorJsonValidator');
 const anchorLedgerAPI = require('./HyperledgerFabric/FabricAPI');
-
+const fs = require('fs');
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -9,6 +9,28 @@ app.use(express.json());    // <==== parse request body as JSON
 
 //api entries
 //validation if an anchor is already defined or it doesn't exist, will be done at smart contract level
+
+app.get('/getTestVolume', async (req, res) => {
+    // /config - mount volume initializaed with empty dir
+
+    try {
+       const content = fs.readFileSync('/config/data/configtx.yaml');
+
+        res.json({
+            content : content.toString(),
+            status : 200
+        })
+    }
+    catch(err)
+    {
+        res.json( {
+            error : err.message,
+            status : 500
+        });
+    }
+
+
+});
 
 app.post('/createAnchor',async (req,res) =>  {
     var hostname = req.hostname;

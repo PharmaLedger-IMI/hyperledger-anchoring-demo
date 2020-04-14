@@ -2,8 +2,7 @@
 
 !/AnchorAPI/wallet/
 !/Network/DockerNetwork;C/
-!/Network/DockerNetwork/organizations/
-!/PodAnchor/venv/
+!/Network/DockerNetwork/AnchorChainCode/
 !/Network/Kube/
 !/Network/Hyperledger/bin/
 !/Network/Hyperledger/config/

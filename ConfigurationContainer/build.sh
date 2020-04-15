@@ -1,7 +1,7 @@
 #!/bin/bash
 echo Build image
 
-docker build -t ledger-emptydir -f docker/dockerfile-emptydir .
+docker build -t ledger-emptydir -f dockerfile .
 docker tag ledger-emptydir:latest  mabdockerid/ledger-emptydir:latest
 
 echo push ledger image

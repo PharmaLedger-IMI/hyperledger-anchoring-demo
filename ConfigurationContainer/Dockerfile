@@ -3,10 +3,10 @@
 FROM node:alpine
 
 RUN mkdir -p /usr/src/app/scripts
-WORKDIR /usr/src/app/scripts
+#WORKDIR /usr/src/app/scripts
 
-COPY fillconfiguration.sh  ./
-RUN chmod +x fillconfiguration.sh
+COPY fillconfiguration.sh  /usr/src/app/scripts/
+RUN chmod +x /usr/src/app/scripts/fillconfiguration.sh
 
 # URL from where to git clone
 ENV GitCloneURL noURL

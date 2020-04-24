@@ -1,0 +1,15 @@
+FROM hyperledger/fabric-peer:2.0.1
+
+#"Env": 
+#"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+#"FABRIC_CFG_PATH=/etc/hyperledger/fabric"
+
+#"Volumes"
+#"/etc/hyperledger/fabric"
+#"/var/hyperledger"
+
+#All enviroment variables for configuration of peer are available in ./config/core.yaml
+#Some enviroment variables can be configured in container and the file to configure the peer must be provided       
+#Enviroment variable follow the convension CORE_PEER_<flagname capitalized and with _ instead of .>
+
+CMD ["peer","node","start"]

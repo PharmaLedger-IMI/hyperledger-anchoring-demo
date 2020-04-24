@@ -47,7 +47,7 @@ spec:
             - name: ORDERER_GENERAL_TLS_CERTIFICATE
               value: /usr/src/crypto-config/crypto-config/ordererOrganizations/consortium/orderers/orderer0/tls/server.crt
             - name: ORDERER_GENERAL_TLS_ENABLED
-              value: "true"
+              value: "false"
             - name: ORDERER_GENERAL_TLS_PRIVATEKEY
               value: /usr/src/crypto-config/crypto-config/ordererOrganizations/consortium/orderers/orderer0/tls/server.key
             - name: ORDERER_GENERAL_TLS_ROOTCAS

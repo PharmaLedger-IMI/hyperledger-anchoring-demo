@@ -18,7 +18,7 @@ RUN apk add --no-cache openssh
 RUN apk add --no-cache --upgrade bash
 
 
-CMD [ "sh" , "-c", "/fillconfiguration.sh $GitCloneURL  $PATHToGitClone" ]
+CMD [ "sh" , "-c", "git clone $GitCloneURL  $PATHToGitClone" ]
 
 
 

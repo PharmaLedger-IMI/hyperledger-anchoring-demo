@@ -1,4 +1,4 @@
-<h4> Create and publish images for AnchorAPI and Ledger </h4>
+<h4> Create and publish images for AnchorAPI and Ledger Containers </h4>
 
  - Execute ./buildandpush.sh from AnchorApi and Ledger
 

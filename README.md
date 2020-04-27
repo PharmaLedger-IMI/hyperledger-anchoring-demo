@@ -1,22 +1,13 @@
 # Anchoring-demo
 
-**1. AnchorAPI**<br/>
+**1. Containers** <br/>
 
-Provides the Anchoring API to be used with Hyperledger Fabric blockchain network using smart contracts developed using chain code.
+Contains the source code and container files for AnchorAPI, AnchorChainCode snd Hyperledger Fabric. 
 
-**2. AnchorChainCode**<br/>
+**2. Kubernetes**<br/>
 
-Provides the source code for the smart contract, which will be deployed on the peers and channels.
+Provides Kubernetes deployment files for Hyperledger fabric network accessed by using AnchorAPI.
 
 
-**3. Blockchain**<br/>
-
-Provides the docker and binary scripts in order to obtain an working Hyperledger fabric network
-
-**4. docker** 
-
-Provides docker images and k8s deployment files for AnchorAPI and Hyperledger fabric network.
 <br/>
 <br/>
-
-

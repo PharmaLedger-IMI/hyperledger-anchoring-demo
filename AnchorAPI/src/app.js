@@ -8,8 +8,22 @@ const port = 3000;
 
 app.use(express.json());    // <==== parse request body as JSON
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin || req.headers.host);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Access-Control-Allow-Origin');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 //api entries
 //validation if an anchor is already defined or it doesn't exist, will be done at smart contract level
+app.get('/echo', async(req,res) => {
+    res.json({
+        content : 'Echo from the Anchoring API',
+        status : 200
+    })
+});
 
 app.get('/getTestVolume', async (req, res) => {
     // /config - mount volume initializaed with empty dir

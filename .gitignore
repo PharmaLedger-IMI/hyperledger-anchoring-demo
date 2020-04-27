@@ -5,3 +5,6 @@
 !/HyperledgerContainers/DockerNetwork/AnchorChainCode/
 !/HyperledgerContainers/Hyperledger/bin/
 !/HyperledgerContainers/Hyperledger/config/
+/AnchorAPI/src/node_modules
+/Configurations/bin
+/AnchorChainCode/node_modules

@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+
 app.use(express.json());    // <==== parse request body as JSON
 
 app.use(function (req, res, next) {

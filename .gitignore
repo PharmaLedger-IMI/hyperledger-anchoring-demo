@@ -12,3 +12,5 @@
 /AnchorAPI/.idea
 /Containers/AnchorChainCode/node_modules
 /Containers/Configurations/bin
+/Containers/AnchorAPI/.idea
+/Containers/AnchorAPI/src/node_modules

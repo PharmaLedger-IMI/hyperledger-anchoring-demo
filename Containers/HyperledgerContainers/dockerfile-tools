@@ -1,0 +1,14 @@
+FROM hyperledger/fabric-tools:2.0.1
+
+#"Env":
+#"PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+#"GOLANG_VERSION=1.13.4",
+#"GOPATH=/go",
+#"FABRIC_CFG_PATH=/etc/hyperledger/fabric"
+            
+
+#"Volumes"
+#"/etc/hyperledger/fabric"
+
+
+CMD ["/bin/sh", "-c", "#(nop) COPY dir:98879fb3a5aa46420b89f4dd78ab09fb87d477207ee8cfd3812f6cf6d7618db7 in /etc/hyperledger/fabric "]

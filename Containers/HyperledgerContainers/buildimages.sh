@@ -22,3 +22,12 @@ docker tag ledger-fabric-orderer:latest  mabdockerid/ledger-fabric-orderer:lates
 
 echo push ledger image Fabric ORDERER
 docker push mabdockerid/ledger-fabric-orderer:latest
+
+
+echo Build image Fabric TOOLS
+
+docker build -t ledger-fabric-tools -f dockerfile-tools .
+docker tag ledger-fabric-tools:latest  mabdockerid/ledger-fabric-tools:latest
+
+echo push ledger image Fabric TOOLS
+docker push mabdockerid/ledger-fabric-tools:latest

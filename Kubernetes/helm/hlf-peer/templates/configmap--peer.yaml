@@ -64,3 +64,11 @@ data:
   GODEBUG: "netdns=go"
   ADMIN_MSP_PATH: /var/hyperledger/admin_msp
   ORD_TLS_PATH: /var/hyperledger/tls/ord/cert
+  # postStart command parameters for channel creation and join
+  SleepTimeForPeerToBeOnline: {{ .Values.postStart.sleeptime | quote }}
+  ORDERER_IP: {{ .Values.postStart.ordererip | quote }}
+  CHANNEL_NAME: {{ .Values.postStart.channelname | quote }}
+
+
+
+

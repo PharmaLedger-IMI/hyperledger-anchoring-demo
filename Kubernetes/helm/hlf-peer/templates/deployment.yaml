@@ -96,6 +96,46 @@ spec:
         - name: peer
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - sh
+                  - -c
+                  - |-
+                    printenv
+                    echo "sleeping ..."
+                    ### wait a while until peer service is up and running
+                    sleep $SleepTimeForPeerToBeOnline
+
+                    echo "finished sleeping ..."
+
+                    ### try to fetch the block
+                    ### if the block exist
+                    ### then we need to join the channel with the received block
+                    ### else we create the channel and with the block obtained we join the channel
+
+                    echo "trying to fetch block or create one ..."
+
+                    peer channel fetch 0 -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ${CHANNEL_NAME}.block
+                    if [ -f ${CHANNEL_NAME}.block ]
+                    then
+                      ### do nothing, we have the block
+                    else
+                       peer channel create -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ./hl_config/channel/hlf--channel/${CHANNEL_NAME}.tx
+                    fi
+
+                    echo "joining the channel ..."
+
+                    ### switch to admin to invoke channel join
+                    export CORE_PEER_MSPCONFIGPATH=/var/hyperledger/admin_msp
+                    peer channel join -b ${CHANNEL_NAME}.block
+
+                    ### revert changes
+                    export CORE_PEER_MSPCONFIGPATH=/var/hyperledger/msp
+
+                    echo "finished post start event ..."
+
           ports:
             - name: request
               containerPort: 7051

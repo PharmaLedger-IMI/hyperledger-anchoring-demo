@@ -137,3 +137,5 @@ affinity: {}
   #       labelSelector:
   #         matchLabels:
   #           app: hlf-peer
+
+postStart: {}

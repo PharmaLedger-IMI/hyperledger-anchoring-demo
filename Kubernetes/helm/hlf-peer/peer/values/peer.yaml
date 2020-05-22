@@ -1,6 +1,11 @@
 peer:
   mspID: PeerMSP
 
+postStart:
+  sleeptime: 30
+  channelname: mychannel
+  ordererip: a4b7bdb8d30524134b7196150d39393a-182761043.eu-west-2.elb.amazonaws.com:7050
+
 secrets:
   peer:
     cert: hlf--peer0-idcert

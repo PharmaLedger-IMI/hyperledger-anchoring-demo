@@ -81,6 +81,7 @@ spec:
         - name: orderer
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - name: ord-port
               containerPort: 7050

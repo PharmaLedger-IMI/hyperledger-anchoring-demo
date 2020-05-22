@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hlf-ord
+  labels:
+    name: hlf-ord
+
+spec:
+  selector:
+    app: hlf-ord
+
+  ports:
+    - port: 7050
+      targetPort: 7050
+
+
+  type: LoadBalancer

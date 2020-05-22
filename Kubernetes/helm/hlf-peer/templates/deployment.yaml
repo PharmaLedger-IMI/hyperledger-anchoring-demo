@@ -117,10 +117,10 @@ spec:
 
                     echo "trying to fetch block or create one ..."
 
-                    peer channel fetch 0 -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ${CHANNEL_NAME}.block
-                    if [ -f ${CHANNEL_NAME}.block ]
-                    then
+                    peer channel fetch 0 ${CHANNEL_NAME}.block -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME}
+                    if test -f "${CHANNEL_NAME}.block"; then
                       ### do nothing, we have the block
+                      echo "block fetched ... "
                     else
                        peer channel create -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ./hl_config/channel/hlf--channel/${CHANNEL_NAME}.tx
                     fi

@@ -104,11 +104,11 @@ spec:
                   - -c
                   - |-
                     printenv
-                    echo "sleeping ..."
+                    echo "sleeping ..." > /usr/share/poststart.log
                     ### wait a while until peer service is up and running
                     sleep $SleepTimeForPeerToBeOnline
 
-                    echo "finished sleeping ..."
+                    echo "finished sleeping ..." >> /usr/share/poststart.log
 
                     ### try to fetch the block
                     ### if the block exist
@@ -117,24 +117,25 @@ spec:
 
                     echo "trying to fetch block or create one ..."
 
-                    peer channel fetch 0 ${CHANNEL_NAME}.block -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME}
+                    peer channel fetch 0 ${CHANNEL_NAME}.block -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME}  >> /usr/share/poststart.log
                     if test -f "${CHANNEL_NAME}.block"; then
                       ### do nothing, we have the block
-                      echo "block fetched ... "
+                      echo "block fetched ... " >> /usr/share/poststart.log
                     else
-                       peer channel create -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ./hl_config/channel/hlf--channel/${CHANNEL_NAME}.tx
+                       peer channel create -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ./hl_config/channel/hlf--channel/${CHANNEL_NAME}.tx >> /usr/share/poststart.log
                     fi
 
-                    echo "joining the channel ..."
+                    echo "joining the channel ..." >> /usr/share/poststart.log
 
                     ### switch to admin to invoke channel join
                     export CORE_PEER_MSPCONFIGPATH=/var/hyperledger/admin_msp
-                    peer channel join -b ${CHANNEL_NAME}.block
+                    peer channel join -b ${CHANNEL_NAME}.block >> /usr/share/poststart.log
 
                     ### revert changes
                     export CORE_PEER_MSPCONFIGPATH=/var/hyperledger/msp
 
-                    echo "finished post start event ..."
+                    peer channel list  >> /usr/share/poststart.log
+                    echo "finished post start event ..." >> /usr/share/poststart.log
 
           ports:
             - name: request

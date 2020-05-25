@@ -103,8 +103,9 @@ spec:
                   - sh
                   - -c
                   - |-
-                    printenv
-                    echo "sleeping ..." > /usr/share/poststart.log
+
+                    printenv > /usr/share/poststart.log
+                    echo "sleeping ..." >> /usr/share/poststart.log
                     ### wait a while until peer service is up and running
                     sleep $SleepTimeForPeerToBeOnline
 
@@ -115,14 +116,14 @@ spec:
                     ### then we need to join the channel with the received block
                     ### else we create the channel and with the block obtained we join the channel
 
-                    echo "trying to fetch block or create one ..."
+                    echo "trying to fetch block or create one ..." >> /usr/share/poststart.log
 
-                    peer channel fetch 0 ${CHANNEL_NAME}.block -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME}  >> /usr/share/poststart.log
+                    peer channel fetch 0 ${CHANNEL_NAME}.block -o ${ORDERER_IP} -c ${CHANNEL_NAME}  >> /usr/share/poststart.log
                     if test -f "${CHANNEL_NAME}.block"; then
                       ### do nothing, we have the block
                       echo "block fetched ... " >> /usr/share/poststart.log
                     else
-                       peer channel create -o ${ORDERER_IP}:7050 -c ${CHANNEL_NAME} -f ./hl_config/channel/hlf--channel/${CHANNEL_NAME}.tx >> /usr/share/poststart.log
+                       peer channel create -o ${ORDERER_IP} -c ${CHANNEL_NAME} -f ./hl_config/channel/hlf--channel/${CHANNEL_NAME}.tx >> /usr/share/poststart.log
                     fi
 
                     echo "joining the channel ..." >> /usr/share/poststart.log
@@ -136,6 +137,7 @@ spec:
 
                     peer channel list  >> /usr/share/poststart.log
                     echo "finished post start event ..." >> /usr/share/poststart.log
+
 
           ports:
             - name: request

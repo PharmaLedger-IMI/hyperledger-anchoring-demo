@@ -1,0 +1,43 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker
+  labels:
+    run: docker
+spec:
+  selector:
+    name: docker
+  ports:
+  - protocol: TCP
+    targetPort: 2375
+    port: 2375
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-dind
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: docker
+  template:
+    metadata:
+      labels:
+        name: docker
+    spec:
+      volumes:
+      - name: dockervolume
+        persistentVolumeClaim:
+          claimName: docker-pvc
+      containers:
+      - name: docker
+        securityContext:
+          privileged: true
+        image: "docker:18.05.0-dind"
+        ports:
+        - containerPort: 2375
+        volumeMounts:
+        - mountPath: /var/lib/docker
+          name: dockervolume

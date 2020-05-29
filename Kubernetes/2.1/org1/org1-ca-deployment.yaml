@@ -1,0 +1,49 @@
+--- #---------------- CA org1 Deployment ---------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ca-org1
+  name: ca-org1
+spec:
+  selector:
+    matchLabels:
+      app: ca-org1
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ca-org1
+    spec:
+      containers:
+        - args:
+            - sh
+            - -c
+            - fabric-ca-server start --ca.certfile /shared/network/crypto-config/peerOrganizations/org1/ca/ca.org1-cert.pem
+              --ca.keyfile /shared/network/crypto-config/peerOrganizations/org1/ca/priv_sk
+              -b admin:adminpw -d
+          env:
+            - name: FABRIC_CA_HOME
+              value: /etc/hyperledger/fabric-ca-server
+            - name: FABRIC_CA_SERVER_CA_NAME
+              value: ca-org1
+            - name: FABRIC_CA_SERVER_TLS_CERTFILE
+              value: /shared/network/crypto-config/peerOrganizations/org1/ca/ca.org1-cert.pem
+            - name: FABRIC_CA_SERVER_TLS_ENABLED
+              value: "true"
+            - name: FABRIC_CA_SERVER_TLS_KEYFILE
+              value: /shared/network/crypto-config/peerOrganizations/org1/ca/priv_sk
+          image: hyperledger/fabric-ca:amd64-1.4.6
+          name: ca-org1
+          ports:
+            - containerPort: 7054
+          volumeMounts:
+            - mountPath: /shared
+              name: sharedvolume
+      restartPolicy: Always
+      volumes:
+        - name: sharedvolume
+          persistentVolumeClaim:
+            claimName: shared-pvc

@@ -1,0 +1,16 @@
+--- #---------------- Orderer0 Service ---------------
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: orderer1
+  name: orderer1
+spec:
+  type: ClusterIP
+  ports:
+    - name: "orderer"
+      port: 7050
+      targetPort: 7050
+  selector:
+    app: orderer1
+

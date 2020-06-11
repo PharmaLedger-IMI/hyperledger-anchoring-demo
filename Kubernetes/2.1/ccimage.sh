@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo Building CC base docker image
-docker build -t ledgerccmarbles -f chaincode/dockerfile .
-docker tag ledgerccmarbles:latest  mabdockerid/ledgerccmarbles:latest
-echo Push ledgerCCmarbles image
-docker push mabdockerid/ledgerccmarbles:latest
+echo Building CC anchor base docker image
+docker build -t ledgerccanchor -f chaincode/dockerfile .
+docker tag ledgerccanchor:latest  mabdockerid/ledgerccanchor:latest
+echo Push ledgerCCanchor image
+docker push mabdockerid/ledgerccanchor:latest

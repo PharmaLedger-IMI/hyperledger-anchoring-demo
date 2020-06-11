@@ -17,6 +17,8 @@ spec:
       labels:
         app: ca-org1
     spec:
+      nodeSelector:
+        cl: hyperledger
       containers:
         - args:
             - sh

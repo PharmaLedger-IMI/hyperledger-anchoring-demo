@@ -1,5 +1,5 @@
-module github.com/marbles
-  
+module github.com/anchor
+
 go 1.12
 
 require (

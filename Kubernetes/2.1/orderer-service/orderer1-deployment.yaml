@@ -17,19 +17,8 @@ spec:
       labels:
         app: orderer1
     spec:
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              podAffinityTerm:
-                labelSelector:
-                  matchExpressions:
-                    - key: "app"
-                      operator: In
-                      values:
-                        - orderer0
-                        - orderer2
-                topologyKey: "kubernetes.io/hostname"
+      nodeSelector:
+        cl: hyperledger
       containers:
         - args:
             - orderer

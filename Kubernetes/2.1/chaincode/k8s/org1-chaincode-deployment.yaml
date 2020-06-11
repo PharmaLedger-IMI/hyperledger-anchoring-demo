@@ -3,27 +3,29 @@
 apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
-  name: chaincode-marbles-org1
+  name: chaincode-anchor-org1
   labels:
-    app: chaincode-marbles-org1
+    app: chaincode-anchor-org1
 spec:
   selector:
     matchLabels:
-      app: chaincode-marbles-org1
+      app: chaincode-anchor-org1
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: chaincode-marbles-org1
+        app: chaincode-anchor-org1
     spec:
+      nodeSelector:
+        cl: hyperledger
       containers:
-        - image: mabdockerid/ledgerccmarbles:latest
-          name: chaincode-marbles-org1
+        - image: mabdockerid/ledgerccanchor:latest
+          name: chaincode-anchor-org1
           imagePullPolicy: IfNotPresent
           env:
             - name: CHAINCODE_CCID
-              value: "marbles:5fcd27e6bd036cbc37a2130c03c3b4175d531fda46c99c53b4b5d8c5a8b69ae6"
+              value: "anchor:5fcd27e6bd036cbc37a2130c03c3b4175d531fda46c99c53b4b5d8c5a8b69ae6"
             - name: CHAINCODE_ADDRESS
               value: "0.0.0.0:7052"
           ports:

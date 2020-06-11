@@ -17,6 +17,8 @@ spec:
       labels:
         app: peer0-org1
     spec:
+      nodeSelector:
+        cl: hyperledger
       containers:
         - args:
             - peer

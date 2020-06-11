@@ -1,8 +1,8 @@
 # This image is a microservice in golang for the Degree chaincode
 FROM golang:1.13.8-alpine AS build
 
-COPY ./chaincode /go/src/github.com/marbles
-WORKDIR /go/src/github.com/marbles
+COPY ./chaincode /go/src/github.com/anchor
+WORKDIR /go/src/github.com/anchor
 
 # Build application
 RUN go build -o chaincode -v .
@@ -11,7 +11,7 @@ RUN go build -o chaincode -v .
 # Pass the binary to the prod image
 FROM alpine:3.11 as prod
 
-COPY --from=build /go/src/github.com/marbles/chaincode /app/chaincode
+COPY --from=build /go/src/github.com/anchor/chaincode /app/chaincode
 
 USER 1000
 

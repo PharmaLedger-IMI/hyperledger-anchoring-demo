@@ -17,6 +17,8 @@ spec:
       labels:
         app: cli-org1
     spec:
+      nodeSelector:
+        cl: hyperledger
       containers:
         - env:
             - name: FABRIC_LOGGING_SPEC
@@ -45,7 +47,7 @@ spec:
           name: cli
           tty: true
           volumeMounts:
-            - mountPath: /opt/gopath/src/github.com/marbles/
+            - mountPath: /opt/gopath/src/github.com/anchor/
               subPath: network/chaincode
               name: sharedvolume
             - mountPath: /opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/channel-artifacts
@@ -54,9 +56,6 @@ spec:
             - mountPath: /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
               name: sharedvolume
               subPath: network/crypto-config
-            - mountPath: /opt/gopath/src/github.com/fabcar/
-              name: sharedvolume
-              subPath: network/fabcar
           workingDir: /opt/gopath/src/github.com/hyperledger/fabric/peer
       restartPolicy: Always
       volumes:

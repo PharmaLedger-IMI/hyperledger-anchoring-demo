@@ -2,7 +2,7 @@
   "name": "first-network-org1",
   "version": "1.0.0",
   "client": {
-    "organization": "org1",
+    "organization": "Org1",
     "connection": {
       "timeout": {
         "peer": {
@@ -13,7 +13,7 @@
   },
   "organizations": {
     "Org1": {
-      "mspid": "org1MSP",
+      "mspid": "Org1MSP",
       "peers": [
         "peer0-org1"
       ],

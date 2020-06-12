@@ -38,7 +38,7 @@ const EnrollFabricUsers = {
                   certificate: enrollment.certificate,
                   privateKey: enrollment.key.toBytes(),
               },
-              mspId: 'Org1MSP',
+              mspId: 'org1MSP',
               type: 'X.509',
           };
           await wallet.put('admin', x509Identity);
@@ -111,7 +111,7 @@ const EnrollFabricUsers = {
                   certificate: enrollment.certificate,
                   privateKey: enrollment.key.toBytes(),
               },
-              mspId: 'Org1MSP',
+              mspId: 'org1MSP',
               type: 'X.509',
           };
           await wallet.put('user2', x509Identity);

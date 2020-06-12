@@ -1,0 +1,27 @@
+peer:
+  mspID: PeerMSP
+
+postStart:
+  sleeptime: 30
+  channelname: mychannel
+  ordererip: aa4d3c3be4c7d4b3f83d250d2772be9d-492017297.eu-west-2.elb.amazonaws.com:7050
+
+logging:
+  level: info
+  peer: info
+  cauthdsl: warning
+  gossip: info
+  grpc: error
+  ledger: info
+  msp: warning
+  policies: warning
+
+secrets:
+  peer:
+    cert: hlf--peer0-idcert
+    key: hlf--peer0-idkey
+    caCert: hlf--peer-cacert
+  channels:
+   - hlf--channel
+  adminCert: hlf--peer-admincert
+  adminKey: hlf--peer-adminkey

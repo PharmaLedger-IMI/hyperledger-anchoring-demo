@@ -25,7 +25,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: CHAINCODE_CCID
-              value: "anchor:5fcd27e6bd036cbc37a2130c03c3b4175d531fda46c99c53b4b5d8c5a8b69ae6"
+              value: "anchor:232fd39bc030e2e579ca99ed4816ccf4625b455bec142283beb542fd002226c5"
             - name: CHAINCODE_ADDRESS
               value: "0.0.0.0:7052"
           ports:

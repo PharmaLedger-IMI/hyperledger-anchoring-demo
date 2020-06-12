@@ -1,0 +1,91 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AnchorAPI",
+		"_postman_id": "21d56aa4-54f5-abef-2bfe-e931b5dfe360",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createAnchor",
+			"request": {
+				"url": "http://aed92998aef0c464db2adb7f582e1115-2029848805.eu-west-2.elb.amazonaws.com:3000/createAnchor",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"anchorURL\":\"url51\",\r\n    \"writeList\":[\"publicKey1\",\"publicKey2\"],\r\n    \"currentHash\":\"hash\",\r\n    \"hashes\":[\"hash1\",\"hash2\"],\r\n    \"timestamps\":[\"time1\",\"time2\"],\r\n    \"signatures\":[\"signature 1\",\"signature 2\"]\r\n\r\n}"
+				},
+				"description": "Invoke AnchorAPI"
+			},
+			"response": []
+		},
+		{
+			"name": "getAnchor",
+			"request": {
+				"url": "http://aed92998aef0c464db2adb7f582e1115-2029848805.eu-west-2.elb.amazonaws.com:3000/getAnchor",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"anchorURL\":\"url51\",\r\n    \"writeList\":[\"publicKey1\",\"publicKey2\"],\r\n    \"currentHash\":\"hash\",\r\n    \"hashes\":[\"hash1\",\"hash2\"],\r\n    \"timestamps\":[\"time1\",\"time2\"],\r\n    \"signatures\":[\"signature 1\",\"signature 2\"]\r\n\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "updateAnchor",
+			"request": {
+				"url": "http://aed92998aef0c464db2adb7f582e1115-2029848805.eu-west-2.elb.amazonaws.com:3000/updateAnchor",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"anchorURL\":\"url51\",\r\n    \"writeList\":[\"publicKey111\",\"publicKey211\"],\r\n    \"currentHash\":\"hash\",\r\n    \"hashes\":[\"hash1\",\"hash2\"],\r\n    \"timestamps\":[\"time1\",\"time2\"],\r\n    \"signatures\":[\"signature 1\",\"signature 2\"]\r\n\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAnchor",
+			"request": {
+				"url": "http://aed92998aef0c464db2adb7f582e1115-2029848805.eu-west-2.elb.amazonaws.com:3000/deleteAnchor",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"anchorURL\":\"url51\",\r\n    \"writeList\":[\"publicKey111\",\"publicKey211\"],\r\n    \"currentHash\":\"hash\",\r\n    \"hashes\":[\"hash1\",\"hash2\"],\r\n    \"timestamps\":[\"time1\",\"time2\"],\r\n    \"signatures\":[\"signature 1\",\"signature 2\"]\r\n\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

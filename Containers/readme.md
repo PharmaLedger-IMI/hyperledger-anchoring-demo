@@ -1,22 +1,10 @@
 **1. AnchorAPI**<br/>
 
 Provides the Anchoring API to be used with Hyperledger Fabric blockchain network using smart contracts developed using chain code.
+Execute ./build.sh from AnchorAPI folder in order to create the docker image and push it
 
-**2. AnchorChainCode**<br/>
+**2. HyperledgerContainers** 
 
-Provides the source code for the smart contract, which will be deployed on the peers and channels.
-
-
-**3. ConfigurationContainer**<br/>
-
-Provides the docker and binary scripts in order to obtain an working Configuration Container.
-
-**4. Configurations**<br/>
-
-Provides the Hyperledger Fabric network configuration files and crypto material.
-
-**4. HyperledgerContainers** 
-
-Provides configurable docker images and Kubernetes deployment files for Hyperledger fabric network.
+Provides configurable docker images for Hyperledger fabric network.
 <br/>
 <br/>

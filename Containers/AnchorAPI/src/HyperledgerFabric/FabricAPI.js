@@ -141,7 +141,7 @@ async function CreateGateway(){
     const network = await gateway.getNetwork(channelid);
 
     // Get the contract from the network.
-    const contract = network.getContract('anchorCCpackage');
+    const contract = network.getContract('anchor');
 
     if (contract === undefined)
         throw new Error('Unable to get contract');
@@ -172,7 +172,7 @@ async function main(){
     const network = await gateway.getNetwork(channelid);
 
     // Get the contract from the network.
-    const contract = network.getContract('anchorCCpackage');
+    const contract = network.getContract('anchor');
 
     var anchorValue = await contract.evaluateTransaction( 'GetAnchor',  'anchorKey');
     //console.info(`anchor loaded from ledge ${anchorValue.toString('utf8')}`);

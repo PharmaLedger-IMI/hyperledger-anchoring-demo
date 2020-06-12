@@ -2,7 +2,7 @@
 
 **1. Containers** <br/>
 
-Contains the source code and container files for AnchorAPI, AnchorChainCode snd Hyperledger Fabric. 
+Contains the source code and container files for AnchorAPI and Hyperledger Fabric. 
 
 **2. Kubernetes**<br/>
 

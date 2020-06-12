@@ -60,7 +60,7 @@ app.post('/createAnchor',async (req,res) =>  {
     //check if json is valid as structure
     if (anchorJsonValidator.validate(jsonReceived))
     {
-        const result = await anchorLedgerAPI.AddAnchorToLedger(jsonReceived.anchorURL, jsonReceived);
+        const result = await anchorLedgerAPI.AddAnchorToLedger(jsonReceived.anchorURL, JSON.stringify(jsonReceived));
         console.info(result);
         res.json(result);
         return;
@@ -86,7 +86,7 @@ app.post('/updateAnchor', async (req,res) => {
     //check if json is valid as structure
     if (anchorJsonValidator.validate(jsonReceived))
     {
-        var result = await anchorLedgerAPI.UpdateAnchorOnLedger(jsonReceived.anchorURL, jsonReceived);
+        var result = await anchorLedgerAPI.UpdateAnchorOnLedger(jsonReceived.anchorURL, JSON.stringify(jsonReceived));
         console.info(result);
         res.json(result);
         return;

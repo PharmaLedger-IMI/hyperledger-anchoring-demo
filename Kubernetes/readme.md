@@ -1,6 +1,6 @@
-<h4> Create and publish images for AnchorAPI and Ledger Containers </h4>
+<h4> Deploy Hyperledger Fabric network with Anchor chaincode </h4>
 
- - Execute ./buildandpush.sh from AnchorApi and Ledger
+ Check the instructions from the 2.1 folder in order how to do so.
 
 <h4> Deploy AnchorAPI </h4>
 
@@ -22,3 +22,5 @@ Available POST operations :
  - updateAnchor
  - getAnchor
  - deleteAnchor
+
+Import in PostMan the file AnchorApi_PostManCollectionv2.json, update the external-ip with the one obtained, in order to check the API

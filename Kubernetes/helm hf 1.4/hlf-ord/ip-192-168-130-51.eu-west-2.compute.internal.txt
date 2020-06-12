@@ -1,0 +1,76 @@
+Name:               ip-192-168-130-51.eu-west-2.compute.internal
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=t3.small
+                    beta.kubernetes.io/os=linux
+                    eks.amazonaws.com/nodegroup=t3-small-nodes
+                    eks.amazonaws.com/nodegroup-image=ami-0162c7f5400c6ec02
+                    failure-domain.beta.kubernetes.io/region=eu-west-2
+                    failure-domain.beta.kubernetes.io/zone=eu-west-2b
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=ip-192-168-130-51.eu-west-2.compute.internal
+                    kubernetes.io/os=linux
+Annotations:        node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Mon, 06 Apr 2020 22:55:24 +0300
+Taints:             node.kubernetes.io/disk-pressure:NoSchedule
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Tue, 26 May 2020 16:28:13 +0300   Mon, 06 Apr 2020 22:55:24 +0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     True    Tue, 26 May 2020 16:28:13 +0300   Mon, 04 May 2020 11:52:32 +0300   KubeletHasDiskPressure       kubelet has disk pressure
+  PIDPressure      False   Tue, 26 May 2020 16:28:13 +0300   Mon, 06 Apr 2020 22:55:24 +0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Tue, 26 May 2020 16:28:13 +0300   Mon, 06 Apr 2020 22:55:34 +0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:   192.168.130.51
+  ExternalIP:   3.10.59.99
+  Hostname:     ip-192-168-130-51.eu-west-2.compute.internal
+  InternalDNS:  ip-192-168-130-51.eu-west-2.compute.internal
+  ExternalDNS:  ec2-3-10-59-99.eu-west-2.compute.amazonaws.com
+Capacity:
+ attachable-volumes-aws-ebs:  25
+ cpu:                         2
+ ephemeral-storage:           20959212Ki
+ hugepages-1Gi:               0
+ hugepages-2Mi:               0
+ memory:                      2002032Ki
+ pods:                        11
+Allocatable:
+ attachable-volumes-aws-ebs:  25
+ cpu:                         1930m
+ ephemeral-storage:           18242267924
+ hugepages-1Gi:               0
+ hugepages-2Mi:               0
+ memory:                      1399920Ki
+ pods:                        11
+System Info:
+ Machine ID:                 ec2b0ccf50960c4fb81ac247edb12912
+ System UUID:                EC2B0CCF-5096-0C4F-B81A-C247EDB12912
+ Boot ID:                    ad8a90d3-f1d5-422f-9ffe-07293e38c99e
+ Kernel Version:             4.14.165-133.209.amzn2.x86_64
+ OS Image:                   Amazon Linux 2
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  docker://18.9.9
+ Kubelet Version:            v1.15.10-eks-bac369
+ Kube-Proxy Version:         v1.15.10-eks-bac369
+ProviderID:                  aws:///eu-west-2b/i-09cd83d5dd16db230
+Non-terminated Pods:         (0 in total)
+  Namespace                  Name    CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                  ----    ------------  ----------  ---------------  -------------  ---
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource                    Requests  Limits
+  --------                    --------  ------
+  cpu                         0 (0%)    0 (0%)
+  memory                      0 (0%)    0 (0%)
+  ephemeral-storage           0 (0%)    0 (0%)
+  attachable-volumes-aws-ebs  0         0
+Events:
+  Type     Reason                Age                     From                                                      Message
+  ----     ------                ----                    ----                                                      -------
+  Normal   Starting              51m                     kube-proxy, ip-192-168-130-51.eu-west-2.compute.internal  Starting kube-proxy.
+  Normal   Starting              29m                     kube-proxy, ip-192-168-130-51.eu-west-2.compute.internal  Starting kube-proxy.
+  Normal   Starting              7m22s                   kube-proxy, ip-192-168-130-51.eu-west-2.compute.internal  Starting kube-proxy.
+  Warning  EvictionThresholdMet  83s (x191139 over 22d)  kubelet, ip-192-168-130-51.eu-west-2.compute.internal     Attempting to reclaim ephemeral-storage

@@ -1,1 +1,0 @@
-./scripts/bootstrap.sh 2.0.1 1.4.6 0.4.18 -s -d

@@ -1,2 +1,0 @@
-# HyperledgerFabric
-Initialization crypto material

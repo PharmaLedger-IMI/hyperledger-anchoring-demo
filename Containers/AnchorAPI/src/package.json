@@ -15,7 +15,7 @@
   "author": "MAB",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fabric-network": "2.0.0-beta.4",
     "fabric-ca-client": "2.0.0-beta.4",
     "fabric-common": "2.0.0-beta.4",
